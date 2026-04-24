@@ -20,7 +20,7 @@ scene.add(new THREE.AmbientLight(0xffffff, 0.5));
 camera.position.z = 3;
 
 const loader = new GLTFLoader();
-loader.load('models/sample1.glb', (gltf) => {
+loader.load('sample1.glb', (gltf) => {
     model = gltf.scene;
     scene.add(model);
     model.scale.set(1.5, 1.5, 1.5);
