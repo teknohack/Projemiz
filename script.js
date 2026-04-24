@@ -71,7 +71,7 @@ camera.position.z = 3;
 
 // Model Yükleme (Dosya adını kontrol et!)
 // script.js içinde bu kısmı bul ve güncelle
-new GLTFLoader().load('./models/sample1.glb', (gltf) => {
+new GLTFLoader().load('./sample1.glb', (gltf) => {
     model = gltf.scene;
     scene.add(model);
     
