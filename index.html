@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Scroll Projesi</title>
+    <link rel="stylesheet" href="projecss.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+
+    <div id="container3d"></div>
+    <button id="game-btn">Oyna Kazan!</button>
+
+<div id="game-overlay">
+    <div id="game-ui">
+        <p>Puan: <span id="score">0</span></p>
+        <p id="discount-text">İndirim: %0</p>
+        <button id="close-game">Oyunu Kapat</button>
+    </div>
+    <canvas id="game-canvas"></canvas>
+</div>
+
+    <section class="spacer">
+        <h1>Ürünleri görmek için aşağı kaydır!</h1>
+    </section>
+
+    <section class="content-section">
+        <div class="box-container">
+            <div class="box"><img src="resim1.jpg" alt="Resim 1"></div>
+            <div class="box"><img src="resim2.jpg" alt="Resim 2"></div>
+            <div class="box"><img src="resim3.jpg" alt="Resim 3"></div>
+        </div>
+    </section>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
