@@ -12,6 +12,9 @@ const ctx = canvas.getContext('2d');
 const gameBtn = document.getElementById('game-btn');
 const gameOverlay = document.getElementById('game-overlay');
 
+
+
+
 const scoreElement = document.getElementById('score');
 const discountElement = document.getElementById('discount-text');
 
