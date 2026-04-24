@@ -3,46 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Scroll Projesi</title>
-    <link rel="stylesheet" href="projecss.css">
-    <link rel="stylesheet" href="oyuncss.css">
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-        }
-      }
-    </script>
+    <title>Modukeys - Özel Ekipmanlar</title>
+    <!-- CSS dosyamızı bağlıyoruz -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome (İkonlar için) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="container3d"></div>
-    <button id="game-btn">Oyna Kazan!</button>
+    <!-- Üst Menü (Navbar) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">MODU<span>KEYS</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="active">Anasayfa</a></li>
+                <li><a href="#">Klavyeler</a></li>
+                <li><a href="#">Mouselar</a></li>
+                <li><a href="#">Kulaklıklar</a></li>
+                <li><a href="#">İletişim</a></li>
+            </ul>
 
-<div id="game-overlay">
-    <div id="game-ui">
-        <p>Puan: <span id="score">0</span></p>
-        <p id="discount-text">İndirim: %0</p>
-        
-    </div>
-    <canvas id="game-canvas"></canvas>
-</div>
+            <div class="nav-icons">
+                <div class="user-menu-container">
+                    <a href="#" class="user-icon" id="user-btn">
+                        <i class="fas fa-user"></i>
+                        <span id="user-name-display" style="display: none; margin-left: 5px; font-size: 0.9rem; font-weight: bold;"></span>
+                    </a>
+                    <!-- Giriş Yapmış Kullanıcı Dropdown Menüsü -->
+                    <div id="user-dropdown" class="user-dropdown">
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-id-badge"></i> Profilim</a></li>
+                            <li><a href="orders.html"><i class="fas fa-box"></i> Siparişlerim</a></li>
+                            <li id="admin-panel-link" style="display: none;"><a href="admin.html"><i class="fas fa-cog"></i> Admin Paneli</a></li>
+                            <li><a href="#" id="nav-logout-btn" style="color: #ef4444;"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-    <section class="spacer">
-        <h1>Ürünleri görmek için aşağı kaydır!</h1>
-    </section>
+                <!-- Sepet İkonu -->
+                <a href="#" class="cart-icon" id="cart-icon-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
 
-    <section class="content-section">
-        <div class="box-container">
-            <div class="box"><img src="resim1.jpg" alt="Resim 1"></div>
-            <div class="box"><img src="resim2.jpg" alt="Resim 2"></div>
-            <div class="box"><img src="resim3.jpg" alt="Resim 3"></div>
+    <!-- Ürünler Bölümü -->
+    <section class="products">
+        <h2>Öne Çıkan Ürünler</h2>
+        <div class="product-grid">
+            <!-- Ürün 1 -->
+            <div class="product-card" data-product-id="prod-1" data-product-name="Modukeys Pro Custom Klavye" data-product-img="keyboard.png" data-product-price="2.450 TL">
+                <div class="product-img">
+                    <img src="keyboard.png" alt="Modukeys Klavye">
+                    <button class="btn-favorite"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <p class="category">MEKANİK KLAVYE</p>
+                    <h3>Modukeys Pro Custom Klavye</h3>
+                    <div class="price">
+                        <span class="new-price">2.450 TL</span>
+                    </div>
+                    <button class="btn-add-cart">Sepete Ekle</button>
+                </div>
+            </div>
+            
+            <!-- Ürün 2 -->
+            <div class="product-card" data-product-id="prod-2" data-product-name="Modukeys Pro Gaming Mouse" data-product-img="mouse.png" data-product-price="750 TL">
+                <div class="product-img">
+                    <img src="mouse.png" alt="Oyuncu Mouse">
+                    <button class="btn-favorite"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <p class="category">GAMING MOUSE</p>
+                    <h3>Modukeys Pro Gaming Mouse</h3>
+                    <div class="price">
+                        <span class="old-price">900 TL</span>
+                        <span class="new-price">750 TL</span>
+                    </div>
+                    <button class="btn-add-cart">Sepete Ekle</button>
+                </div>
+            </div>
+            
+            <!-- Ürün 3 -->
+            <div class="product-card" data-product-id="prod-3" data-product-name="Modukeys 7.1 Surround Kulaklık" data-product-img="hero.png" data-product-price="1.890 TL">
+                <div class="product-img">
+                    <img src="hero.png" alt="Oyuncu Kulaklığı">
+                    <button class="btn-favorite"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <p class="category">GAMING KULAKLIK</p>
+                    <h3>Modukeys 7.1 Surround Kulaklık</h3>
+                    <div class="price">
+                        <span class="new-price">1.890 TL</span>
+                    </div>
+                    <button class="btn-add-cart">Sepete Ekle</button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <script type="module" src="./script.js"></script>
-<script src="./game.js"></script>
-    
+    <!-- Giriş/Kayıt Modal (Açılır Pencere) -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal"><i class="fas fa-times"></i></button>
+            
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="tab-login">Giriş Yap</button>
+                <button class="tab-btn" id="tab-signup">Kayıt Ol</button>
+            </div>
+
+            <!-- Giriş Formu -->
+            <form class="auth-form active" id="form-login">
+                <h2>Hoş Geldiniz</h2>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" id="login-email" required placeholder="E-posta adresiniz">
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input type="password" id="login-password" required placeholder="Şifreniz">
+                </div>
+                <button type="submit" class="btn-submit">Giriş Yap</button>
+            </form>
+
+            <!-- Kayıt Formu (ID'ler Düzeltildi) -->
+            <form class="auth-form" id="form-signup">
+                <h2>Hesap Oluştur</h2>
+                <div class="form-group">
+                    <label>Ad Soyad</label>
+                    <!-- JavaScript'in okuması için ID'leri "reg-name", "reg-email" yaptık -->
+                    <input type="text" id="reg-name" required placeholder="Adınız Soyadınız">
+                </div>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" id="reg-email" required placeholder="E-posta adresiniz">
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input type="password" id="reg-password" required placeholder="Şifreniz">
+                </div>
+                <button type="submit" class="btn-submit">Kayıt Ol</button>
+            </form>
+
+            <div id="auth-message" style="margin-top: 15px; text-align: center; font-weight: bold; display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Sepet Yan Paneli (Sidebar) -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Sepetim</h2>
+            <button id="close-cart-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items-container" id="cart-items-container">
+            <p style="text-align: center; color: #6b7280; margin-top: 20px;">Sepetiniz boş.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Toplam:</span>
+                <span id="cart-total-price">0 TL</span>
+            </div>
+            <button class="btn-checkout" id="btn-checkout">Satın Al</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
