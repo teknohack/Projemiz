@@ -1,7 +1,8 @@
+/* projecss.css */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #111;
+    background-color: #111; /* Tam siyah yaptık şeffaflık gitsin diye */
     color: white;
     overflow-x: hidden;
 }
@@ -12,7 +13,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: -1; 
+    z-index: 1; /* Model altta kalsın */
 }
 
 .spacer {
@@ -20,6 +21,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .content-section {
@@ -27,15 +30,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(0, 0, 0); 
+    background: #000; /* Şeffaflık sorununu çözen tam siyah */
+    position: relative;
+    z-index: 10; /* Kutucuklar modelin üstüne binsin */
 }
 
 .box-container {
     display: flex;
-   
     gap: 80px; 
     padding: 20px;
-   
     justify-content: center; 
     width: 100%;
 }
@@ -50,14 +53,9 @@ body {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-
 .box:hover {
     transform: translateY(-15px) scale(1.05);
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-}
-
-.box:hover {
-    transform: translateY(-10px);
 }
 
 .box img {
@@ -65,7 +63,8 @@ body {
     height: 100%;
     object-fit: cover; 
 }
-/* Oyna Kazan Butonu */
+
+/* Sayfa üstündeki ana buton */
 #game-btn {
     position: fixed;
     top: 20px;
@@ -84,49 +83,7 @@ body {
     transition: 0.3s;
 }
 
-#game-btn:hover { background: #fff; transform: translateX(-50%) scale(1.1); }
-
-/* Oyun Ekranı (Başlangıçta Gizli) */
-#game-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: none; /* JS ile açılacak */
-    z-index: 2000;
-}
-
-#game-ui {
-    position: absolute;
-    top: 20px; width: 100%;
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    pointer-events: none;
-}
-
-#close-game {
-    pointer-events: auto;
-    margin-top: 15px;
-    background-color: #ff4444; /* Canlı kırmızı */
-    color: white;
-    border: 2px solid white; /* Dış hat ekledik */
-    padding: 10px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    
-    /* KÖŞE YUVARLAMA */
-    border-radius: 50px; /* Tam yuvarlak köşeler için yüksek değer */
-    
-    /* GÖLGE VE GEÇİŞ EFEKTİ */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-/* Üzerine gelince (Hover) efekti */
-#close-game:hover {
-    background-color: #cc0000;
-    transform: scale(1.1); /* Hafif büyüme */
-    box-shadow: 0 6px 15px rgba(255, 68, 68, 0.4);
+#game-btn:hover { 
+    background: #fff; 
+    transform: translateX(-50%) scale(1.1); 
 }
